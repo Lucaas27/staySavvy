@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="bg-custom-main py-6">
-      <div className="container mx-auto flex justify-between lg:px-12">
+    <header className="bg-custom-main py-6">
+      <nav className="section-container flex justify-between">
         <span className="text-3xl font-bold tracking-tight text-custom-content">
           <Link to="/">Stay Savvy</Link>
         </span>
@@ -15,8 +15,8 @@ const Header = () => {
             Sign In
           </Link>
         </span>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 };
 
