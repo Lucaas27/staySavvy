@@ -19,7 +19,7 @@
 
 @layer utilities {
   .section-container {
-    @apply container mx-auto px-10;
+    @apply container mx-auto px-10 lg:px-20;
   }
 }
 
