@@ -2,16 +2,23 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import "dotenv/config";
 import mongoose from "mongoose";
-
-mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string);
+import userRoutes from "./routes/users";
 
 const app = express();
+
+mongoose
+  .connect(process.env.MONGODB_CONNECTION_STRING as string)
+  .then(() => {
+    console.info("Connected to MongoDB");
+  })
+  .catch((e) => {
+    console.error("Error connecting to MongoDB:", e.message);
+  });
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.get("/api/test", async (req: Request, res: Response) => {
-  res.json({ message: "Hello world!" });
-});
+app.use("/api/users", userRoutes);
 
-app.listen(3000, () => console.log("Server is running on port 3000"));
+app.listen(3000, () => console.info("Server is running on port 3000"));
