@@ -41,5 +41,5 @@ export const validate = (req: Request, res: Response, next: NextFunction) => {
     .array()
     .map((err) => extractedErrors.push({ [(err as any).path]: err.msg }));
 
-  return res.status(400).json({ errors: extractedErrors });
+  return res.status(400).json({ message: extractedErrors });
 };

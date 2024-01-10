@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import ISignUpForm from "../interfaces/ISignUpForm";
 import { useForm } from "react-hook-form";
+import * as api from "../services/api-service/index";
+import { useMutation } from "react-query";
 
 const SignUpForm = () => {
   const {
@@ -10,7 +12,16 @@ const SignUpForm = () => {
     formState: { errors },
   } = useForm<ISignUpForm>();
 
-  const formHandler = handleSubmit((data) => console.log(data));
+  const mutation = useMutation(api.register, {
+    onSuccess: () => {
+      console.log("Registration successful");
+    },
+    onError(error: Error) {
+      console.log(error.message);
+    },
+  });
+
+  const formHandler = handleSubmit((data) => mutation.mutate(data));
 
   return (
     <>
