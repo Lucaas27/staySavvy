@@ -1,6 +1,6 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import ILayoutProps from "../interfaces/ILayoutProps";
+import ILayoutProps from "../interfaces/LayoutProps";
 
 const Layout = ({ children }: ILayoutProps) => {
   return (

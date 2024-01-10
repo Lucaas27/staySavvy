@@ -5,6 +5,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import Layout from "./layouts/Layout";
+import Authentication from "./pages/Authentication";
 
 const App = () => {
   return (
@@ -19,10 +20,18 @@ const App = () => {
           }
         ></Route>
         <Route
-          path="/search"
+          path="/register"
           element={
             <Layout>
-              <p>Search Page</p>
+              <Authentication isSignIn={false} />
+            </Layout>
+          }
+        ></Route>
+        <Route
+          path="/login"
+          element={
+            <Layout>
+              <Authentication isSignIn={true} />
             </Layout>
           }
         ></Route>
