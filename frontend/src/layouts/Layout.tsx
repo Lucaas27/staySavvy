@@ -1,11 +1,8 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import ILayoutProps from "../interfaces/ILayoutProps";
 
-interface Props {
-  children: React.ReactNode;
-}
-
-const Layout = ({ children }: Props) => {
+const Layout = ({ children }: ILayoutProps) => {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
