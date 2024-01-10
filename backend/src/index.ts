@@ -3,6 +3,7 @@ import cors from "cors";
 import "dotenv/config";
 import mongoose from "mongoose";
 import userRoutes from "./routes/users";
+import accountRoutes from "./routes/accounts";
 
 const app = express();
 
@@ -20,5 +21,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use("/api/users", userRoutes);
+app.use("/api/accounts", accountRoutes);
 
 app.listen(3000, () => console.info("Server is running on port 3000"));

@@ -16,6 +16,18 @@ export const registerValidationRules = () => {
   ];
 };
 
+export const authValidationRules = () => {
+  return [
+    check("email", "Email is required").isEmail(),
+    check(
+      "password",
+      "Password with 6 or more characters is required"
+    ).isLength({
+      min: 6,
+    }),
+  ];
+};
+
 export const validate = (req: Request, res: Response, next: NextFunction) => {
   const validationErrors = validationResult(req);
 
