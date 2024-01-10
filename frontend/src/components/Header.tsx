@@ -6,7 +6,7 @@ const Header = () => {
     <header className="bg-custom-main py-6">
       <nav className="section-container flex justify-between space-x-2">
         <span className="text-3xl font-bold tracking-tight text-custom-content">
-          <Link to="/">Stay Savvy</Link>
+          <Link to="/">StaySavvy</Link>
         </span>
         <span className="flex min-w-max space-x-2">
           <Link
