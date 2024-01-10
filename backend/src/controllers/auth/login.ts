@@ -3,7 +3,7 @@ import User from "../../models/user";
 import bcrypt from "bcryptjs";
 import { tokenGenerator } from "../../utils/tokenGenerator";
 
-export const auth = async (req: Request, res: Response) => {
+export const login = async (req: Request, res: Response) => {
   try {
     const { password, email } = req.body;
 
