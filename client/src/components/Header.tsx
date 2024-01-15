@@ -8,14 +8,24 @@ const Header = () => {
         <span className="text-3xl font-bold tracking-tight text-custom-content">
           <Link to="/">StaySavvy</Link>
         </span>
-        <span className="flex min-w-max space-x-2">
-          <Link
-            to="/sign-in"
-            className="flex items-center rounded-md bg-white px-3 font-bold text-custom-secondary hover:bg-gray-100"
-          >
-            Sign In
-          </Link>
-        </span>
+        <div className="flex flex-row flex-wrap gap-2 space-x-2 text-sm">
+          <span className="flex min-w-max">
+            <Link
+              to="/register"
+              className="flex items-center rounded-md bg-white px-3 font-bold text-custom-secondary hover:bg-gray-100"
+            >
+              Register
+            </Link>
+          </span>
+          <span className="flex min-w-max">
+            <Link
+              to="/login"
+              className="flex items-center rounded-md bg-white px-3 font-bold text-custom-secondary hover:bg-gray-100"
+            >
+              Login
+            </Link>
+          </span>
+        </div>
       </nav>
       <Hero />
     </header>
