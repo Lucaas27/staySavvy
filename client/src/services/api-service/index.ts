@@ -1,8 +1,8 @@
-import ISignUpForm from "../../interfaces/IRegistrationForm";
+import IRegistrationForm from "../../interfaces/IRegistrationForm";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-export const register = async (formData: ISignUpForm) => {
+export const register = async (formData: IRegistrationForm) => {
   const res = await fetch(`${API_BASE_URL}/api/users/register`, {
     method: "POST",
     headers: {
