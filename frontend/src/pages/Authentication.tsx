@@ -1,4 +1,3 @@
-import { FC } from "react";
 import authenticationSVG from "../assets/authentication.svg";
 import googleSVG from "../assets/google.svg";
 import githubSVG from "../assets/github.svg";
@@ -7,7 +6,7 @@ import SignUpForm from "../components/SignUpForm";
 import SignInForm from "../components/SignInForm";
 import { Link } from "react-router-dom";
 
-const Authentication: FC<AuthenticationProps> = ({ isSignIn }) => {
+const Authentication = ({ isSignIn }: AuthenticationProps) => {
   return (
     <div className="flex flex-col justify-center lg:flex-row lg:space-x-2">
       <div className="hidden max-w-md text-center lg:block">
