@@ -3,7 +3,7 @@ import googleSVG from "../assets/google.svg";
 import githubSVG from "../assets/github.svg";
 import AuthenticationProps from "../interfaces/AuthenticationProps";
 import RegistrationForm from "../components/RegistrationForm";
-import SignInForm from "../components/SignInForm";
+import LoginForm from "../components/LoginForm";
 import { Link } from "react-router-dom";
 
 const Authentication = ({ isSignIn }: AuthenticationProps) => {
@@ -60,7 +60,7 @@ const Authentication = ({ isSignIn }: AuthenticationProps) => {
         <small className="my-4 block text-center text-gray-600">
           or with email
         </small>
-        {isSignIn ? <SignInForm /> : <RegistrationForm />}
+        {isSignIn ? <LoginForm /> : <RegistrationForm />}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import ISignInForm from "../interfaces/ISignInForm";
+import ILoginForm from "../interfaces/ILoginForm";
 import { useForm } from "react-hook-form";
 
 const SignInForm = () => {
@@ -6,7 +6,7 @@ const SignInForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ISignInForm>();
+  } = useForm<ILoginForm>();
 
   const formHandler = handleSubmit((data) => console.log(data));
   return (
