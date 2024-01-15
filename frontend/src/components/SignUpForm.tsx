@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ISignUpForm from "../interfaces/ISignUpForm";
 import { useForm } from "react-hook-form";
 import * as api from "../services/api-service/index";
 import { useMutation } from "react-query";
+import { useAppContext } from "../contexts/AppContext";
 
 const SignUpForm = () => {
+  const { showToast } = useAppContext();
+  const navigate = useNavigate();
+
   const {
     register,
     watch,
@@ -14,10 +18,11 @@ const SignUpForm = () => {
 
   const mutation = useMutation(api.register, {
     onSuccess: () => {
-      console.log("Registration successful");
+      showToast({ message: "Registration successful", type: "SUCCESS" });
+      navigate("/");
     },
     onError(error: Error) {
-      console.log(error.message);
+      showToast({ message: error.message, type: "ERROR" });
     },
   });
 
@@ -106,8 +111,9 @@ const SignUpForm = () => {
           )}
         </label>
         <button
+          disabled={mutation.isLoading}
           type="submit"
-          className="w-full rounded-md bg-custom-secondary p-2 text-white transition-colors duration-300 hover:bg-custom-main focus:bg-black focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+          className="w-full cursor-pointer rounded-md bg-custom-secondary p-2 text-white transition-colors duration-300 hover:bg-custom-main focus:bg-custom-main focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
         >
           Register
         </button>
