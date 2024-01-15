@@ -2,7 +2,7 @@ import authenticationSVG from "../assets/authentication.svg";
 import googleSVG from "../assets/google.svg";
 import githubSVG from "../assets/github.svg";
 import AuthenticationProps from "../interfaces/AuthenticationProps";
-import SignUpForm from "../components/SignUpForm";
+import RegistrationForm from "../components/RegistrationForm";
 import SignInForm from "../components/SignInForm";
 import { Link } from "react-router-dom";
 
@@ -15,14 +15,14 @@ const Authentication = ({ isSignIn }: AuthenticationProps) => {
       <div className="w-full p-8 lg:w-1/2 lg:rounded-xl lg:bg-gray-100">
         <div className="mx-auto max-w-md">
           <h2 className="mb-6 text-center text-3xl font-bold">
-            {isSignIn ? "Sign In" : "Sign Up"}
+            {isSignIn ? "Login" : "Register"}
           </h2>
           {isSignIn ? (
             <>
               <p className="mb-6 block text-center text-gray-500">
                 New to StaySavvy?{" "}
                 <span className="font-bold text-custom-secondary">
-                  <Link to="/register">Sign Up</Link>
+                  <Link to="/register">Register</Link>
                 </span>
               </p>
             </>
@@ -60,7 +60,7 @@ const Authentication = ({ isSignIn }: AuthenticationProps) => {
         <small className="my-4 block text-center text-gray-600">
           or with email
         </small>
-        {isSignIn ? <SignInForm /> : <SignUpForm />}
+        {isSignIn ? <SignInForm /> : <RegistrationForm />}
       </div>
     </div>
   );

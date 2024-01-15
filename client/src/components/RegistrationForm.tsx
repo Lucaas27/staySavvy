@@ -1,11 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
-import ISignUpForm from "../interfaces/ISignUpForm";
+import IRegistrationForm from "../interfaces/IRegistrationForm";
 import { useForm } from "react-hook-form";
 import * as api from "../services/api-service/index";
 import { useMutation } from "react-query";
 import { useAppContext } from "../contexts/AppContext";
 
-const SignUpForm = () => {
+const RegistrationForm = () => {
   const { showToast } = useAppContext();
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const SignUpForm = () => {
     watch,
     handleSubmit,
     formState: { errors },
-  } = useForm<ISignUpForm>();
+  } = useForm<IRegistrationForm>();
 
   const mutation = useMutation(api.register, {
     onSuccess: () => {
@@ -130,4 +130,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default RegistrationForm;
