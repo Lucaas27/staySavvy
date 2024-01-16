@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 import userRoutes from "./routes/users";
 import authRoutes from "./routes/auth";
 import cookieParser from "cookie-parser";
+import { unknownEndpoint } from "./middleware/unknownEndpoint";
+import { reqLogger } from "./middleware/logger";
 
 const app = express();
 
@@ -27,8 +29,10 @@ app.use(
   })
 );
 
-app.use("/api/auth", authRoutes);
+app.use(reqLogger());
 app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
+app.use(unknownEndpoint);
 
 app.listen(process.env.SERVER_PORT, () =>
   console.info(`Server is running on port ${process.env.SERVER_PORT}`)
