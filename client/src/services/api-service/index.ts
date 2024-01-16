@@ -1,9 +1,7 @@
 import IRegistrationForm from "../../interfaces/IRegistrationForm";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-
 export const register = async (formData: IRegistrationForm) => {
-  const res = await fetch(`${API_BASE_URL}/api/users/register`, {
+  const res = await fetch(`/api/users/register`, {
     method: "POST",
     credentials: "include",
     headers: {
@@ -20,13 +18,13 @@ export const register = async (formData: IRegistrationForm) => {
 };
 
 export const validateToken = async () => {
-  const res = await fetch(`${API_BASE_URL}/api/auth/validate-token`, {
+  const response = await fetch(`/api/auth/validate-token`, {
     credentials: "include",
   });
 
-  if (!res.ok) {
+  if (!response.ok) {
     throw new Error("Token invalid");
   }
 
-  return res.json();
+  return response.json();
 };
