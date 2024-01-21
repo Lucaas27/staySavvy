@@ -8,7 +8,6 @@ export const register = async (req: Request, res: Response) => {
     When a user does not have an account already
     Then save the email into mongodb
     Then save the password which is encrypted using bcrypt in the user model
-    Then sign a jwt auth_token and return to the user as a cookie
     Then return a successful message to the client
   */
   try {
@@ -27,11 +26,8 @@ export const register = async (req: Request, res: Response) => {
     user = new User(req.body);
     await user.save();
 
-    // Then sign a jwt auth_token and return to the user as a cookie
-    tokenGenerator(res, user);
-
     // Then return a successful message to the client
-    return res.status(201).json({ message: "User created successfully" });
+    return res.status(201).json({ message: "User registered successfully" });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Something went wrong" });

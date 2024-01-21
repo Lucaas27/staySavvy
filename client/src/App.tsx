@@ -18,7 +18,7 @@ const App = () => {
               <p>Home Page</p>
             </Layout>
           }
-        ></Route>
+        />
         <Route
           path="/register"
           element={
@@ -26,7 +26,7 @@ const App = () => {
               <Authentication isSignIn={false} />
             </Layout>
           }
-        ></Route>
+        />
         <Route
           path="/login"
           element={
@@ -34,8 +34,8 @@ const App = () => {
               <Authentication isSignIn={true} />
             </Layout>
           }
-        ></Route>
-        <Route path="*" element={<Navigate to="/" />}></Route>
+        />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   );

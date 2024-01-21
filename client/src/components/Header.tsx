@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import Hero from "./Hero";
-import { useAppContext } from "../contexts/AppContext";
+import { useAppContext } from "../hooks/useAppContext";
+import LogoutButton from "./LogoutButton";
 
 const Header = () => {
   const { isLoggedIn } = useAppContext();
+
   return (
     <header className="bg-custom-main py-6">
       <nav className="section-container flex justify-between space-x-2">
@@ -14,20 +16,20 @@ const Header = () => {
           {isLoggedIn ? (
             <span className="flex min-w-max gap-2">
               <Link
-                to="/register"
-                className="flex items-center rounded-md bg-white px-3 font-bold text-custom-secondary hover:bg-gray-100"
+                to="/my-bookings"
+                className="flex items-center rounded-md px-3 font-bold text-white hover:bg-custom-secondary"
               >
                 My Bookings
               </Link>
 
               <Link
-                to="/register"
-                className="flex items-center rounded-md bg-white px-3 font-bold text-custom-secondary hover:bg-gray-100"
+                to="/my-hotels"
+                className="flex items-center rounded-md px-3 font-bold text-white hover:bg-custom-secondary"
               >
                 My Hotels
               </Link>
 
-              <button>Sign Out</button>
+              <LogoutButton />
             </span>
           ) : (
             <span className="flex min-w-max gap-2">

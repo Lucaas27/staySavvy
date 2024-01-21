@@ -16,7 +16,7 @@ export const registerValidationRules = () => {
   ];
 };
 
-export const authValidationRules = () => {
+export const loginValidationRules = () => {
   return [
     check("email", "Email is required").isEmail(),
     check(

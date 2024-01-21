@@ -1,7 +1,7 @@
 import authenticationSVG from "../assets/authentication.svg";
 import googleSVG from "../assets/google.svg";
 import githubSVG from "../assets/github.svg";
-import AuthenticationProps from "../interfaces/AuthenticationProps";
+import AuthenticationProps from "../interfaces/props/AuthenticationProps";
 import RegistrationForm from "../components/RegistrationForm";
 import LoginForm from "../components/LoginForm";
 import { Link } from "react-router-dom";

@@ -1,13 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import IRegistrationForm from "../interfaces/IRegistrationForm";
 import { useForm } from "react-hook-form";
-import * as api from "../services/api-service/index";
-import { useMutation } from "react-query";
-import { useAppContext } from "../contexts/AppContext";
+import { useRegister } from "../hooks/useRegister";
 
 const RegistrationForm = () => {
-  const { showToast } = useAppContext();
-  const navigate = useNavigate();
+  const { signUpMutation, isLoading } = useRegister();
 
   const {
     register,
@@ -16,17 +13,7 @@ const RegistrationForm = () => {
     formState: { errors },
   } = useForm<IRegistrationForm>();
 
-  const mutation = useMutation(api.register, {
-    onSuccess: () => {
-      showToast({ message: "Registration successful", type: "SUCCESS" });
-      navigate("/");
-    },
-    onError(error: Error) {
-      showToast({ message: error.message, type: "ERROR" });
-    },
-  });
-
-  const formHandler = handleSubmit((data) => mutation.mutate(data));
+  const formHandler = handleSubmit((data) => signUpMutation(data));
 
   return (
     <>
@@ -111,7 +98,7 @@ const RegistrationForm = () => {
           )}
         </label>
         <button
-          disabled={mutation.isLoading}
+          disabled={isLoading}
           type="submit"
           className="w-full cursor-pointer rounded-md bg-custom-secondary p-2 text-white transition-colors duration-300 hover:bg-custom-main focus:bg-custom-main focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
         >

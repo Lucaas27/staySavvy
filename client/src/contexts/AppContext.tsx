@@ -1,18 +1,22 @@
-import { useContext, useState, createContext } from "react";
+import { useState, createContext } from "react";
 import { IAppContext, IAppContextProvider } from "../interfaces/IAppContext";
 import IToastMessage from "../interfaces/IToastMessage";
 import Toast from "../components/Toast";
+import * as AuthService from "../services/AuthService";
 import { useQuery } from "react-query";
-import * as api from "../services/api-service/index";
 
 const AppContext = createContext<IAppContext | undefined>(undefined);
 
 export const AppContextProvider = ({ children }: IAppContextProvider) => {
   const [toast, setToast] = useState<IToastMessage | undefined>(undefined);
-
-  const { isError } = useQuery("validateToken", api.validateToken, {
-    retry: false,
-  });
+  const { data: isLoggedIn } = useQuery(
+    "validateToken",
+    AuthService.ValidateToken,
+    {
+      retry: false,
+      enabled: true, // Disable automatic fetching on mount
+    },
+  );
 
   return (
     <AppContext.Provider
@@ -20,7 +24,7 @@ export const AppContextProvider = ({ children }: IAppContextProvider) => {
         showToast: (toastMessage: IToastMessage) => {
           setToast(toastMessage);
         },
-        isLoggedIn: !isError,
+        isLoggedIn: isLoggedIn as boolean,
       }}
     >
       {
@@ -46,7 +50,4 @@ export const AppContextProvider = ({ children }: IAppContextProvider) => {
   );
 };
 
-export const useAppContext = () => {
-  const context = useContext(AppContext);
-  return context as IAppContext;
-};
+export default AppContext;
