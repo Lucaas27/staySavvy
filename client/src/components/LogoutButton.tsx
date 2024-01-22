@@ -9,6 +9,7 @@ const LogoutButton = () => {
       onClick={() => handleClick()}
       disabled={isLoading}
       className="flex items-center rounded-md bg-white px-3 font-bold text-custom-secondary hover:cursor-pointer hover:bg-gray-100"
+      data-testid="logout-btn"
     >
       Logout
     </button>

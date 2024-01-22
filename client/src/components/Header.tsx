@@ -10,19 +10,23 @@ const Header = () => {
     <header className="bg-custom-main py-6">
       <nav className="section-container flex justify-between space-x-2">
         <span className="text-3xl font-bold tracking-tight text-custom-content">
-          <Link to="/">StaySavvy</Link>
+          <Link to="/" data-testid="brand">
+            StaySavvy
+          </Link>
         </span>
         <div className="flex flex-row flex-wrap text-sm">
           {isLoggedIn ? (
             <span className="flex min-w-max gap-2">
               <Link
                 to="/my-bookings"
+                data-testid="nav-my-bookings-link"
                 className="flex items-center rounded-md px-3 font-bold text-white hover:bg-custom-secondary"
               >
                 My Bookings
               </Link>
 
               <Link
+                data-testid="nav-my-hotels-link"
                 to="/my-hotels"
                 className="flex items-center rounded-md px-3 font-bold text-white hover:bg-custom-secondary"
               >
@@ -34,12 +38,14 @@ const Header = () => {
           ) : (
             <span className="flex min-w-max gap-2">
               <Link
+                data-testid="nav-register-link"
                 to="/register"
                 className="flex items-center rounded-md bg-white px-3 font-bold text-custom-secondary hover:bg-gray-100"
               >
                 Register
               </Link>
               <Link
+                data-testid="nav-login-link"
                 to="/login"
                 className="flex items-center rounded-md bg-white px-3 font-bold text-custom-secondary hover:bg-gray-100"
               >

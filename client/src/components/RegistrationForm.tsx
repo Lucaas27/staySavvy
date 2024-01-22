@@ -17,11 +17,19 @@ const RegistrationForm = () => {
 
   return (
     <>
-      <form className="flex flex-col gap-5" onSubmit={formHandler}>
+      <form
+        className="flex flex-col gap-5"
+        onSubmit={formHandler}
+        data-testid="registration-form"
+      >
         <div className="flex flex-col gap-5 md:flex-row">
-          <label className="mb-5 h-9 flex-1 text-sm font-bold text-gray-600">
+          <label
+            className="mb-5 h-9 flex-1 text-sm font-bold text-gray-600"
+            data-testid="first-name-label"
+          >
             First Name
             <input
+              data-testid="first-name-input"
               type="text"
               className="w-full rounded border px-2 py-1 font-normal"
               {...register("firstName", {
@@ -32,9 +40,13 @@ const RegistrationForm = () => {
               <span className="text-red-500">{errors.firstName.message}</span>
             )}
           </label>
-          <label className="h-9 flex-1 text-sm font-bold text-gray-600">
+          <label
+            className="h-9 flex-1 text-sm font-bold text-gray-600"
+            data-testid="last-name-label"
+          >
             Last Name
             <input
+              data-testid="last-name-input"
               type="text"
               className="w-full rounded border px-2 py-1 font-normal"
               {...register("lastName", {
@@ -46,9 +58,13 @@ const RegistrationForm = () => {
             )}
           </label>
         </div>
-        <label className="flex-1 text-sm font-bold text-gray-600">
+        <label
+          className="flex-1 text-sm font-bold text-gray-600"
+          data-testid="email-label"
+        >
           Email
           <input
+            data-testid="email-input"
             type="email"
             className="h-9 w-full rounded border px-2 py-1 font-normal"
             {...register("email", {
@@ -59,9 +75,13 @@ const RegistrationForm = () => {
             <span className="text-red-500">{errors.email.message}</span>
           )}
         </label>
-        <label className="flex-1 text-sm font-bold text-gray-600">
+        <label
+          className="flex-1 text-sm font-bold text-gray-600"
+          data-testid="password-label"
+        >
           Password
           <input
+            data-testid="password-input"
             type="password"
             className="h-9 w-full rounded border px-2 py-1 font-normal"
             {...register("password", {
@@ -76,9 +96,13 @@ const RegistrationForm = () => {
             <span className="text-red-500">{errors.password.message}</span>
           )}
         </label>
-        <label className="flex-1 text-sm font-bold text-gray-600">
+        <label
+          className="flex-1 text-sm font-bold text-gray-600"
+          data-testid="confirm-password-label"
+        >
           Confirm Password
           <input
+            data-testid="confirm-password-input"
             type="password"
             className="h-9 w-full rounded border px-2 py-1 font-normal"
             {...register("confirmPassword", {
@@ -98,6 +122,7 @@ const RegistrationForm = () => {
           )}
         </label>
         <button
+          data-testid="register-form-btn"
           disabled={isLoading}
           type="submit"
           className="w-full cursor-pointer rounded-md bg-custom-secondary p-2 text-white transition-colors duration-300 hover:bg-custom-main focus:bg-custom-main focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
@@ -109,7 +134,9 @@ const RegistrationForm = () => {
         <p className="mb-6 block text-center text-gray-500">
           Already have an account?{" "}
           <span className="font-bold text-custom-secondary">
-            <Link to="/login">Login here</Link>
+            <Link to="/login" data-testid="login-form-link">
+              Login here
+            </Link>
           </span>
         </p>
       </div>
