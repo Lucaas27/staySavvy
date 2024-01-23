@@ -50,7 +50,7 @@ StaySavvy is a web application designed to help users plan, book, and manage the
 
 ## :sparkles: Features
 
-:heavy_check_mark: User Authentication
+:heavy_check_mark: User Authentication -
 The application implements a secure login and registration system using HTTP cookies and JWT, ensuring a smooth and secure user experience.
 
 :heavy_check_mark: Hotel Management -
