@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "server": "npm run dev --prefix server",
+    "server:test": "npm run test --prefix server",
     "client": "npm run dev --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "concurrently \"npm run server:test\" \"npm run client\""
   },
   "author": "Lucas Gomes",
   "license": "MIT",
