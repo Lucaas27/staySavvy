@@ -53,31 +53,31 @@ StaySavvy is a web application designed to help users plan, book, and manage the
 :heavy_check_mark: User Authentication
 The application implements a secure login and registration system using HTTP cookies and JWT, ensuring a smooth and secure user experience.
 
-:heavy_check_mark: Hotel Management
+:heavy_check_mark: Hotel Management -
 StaySavvy allow users can add, edit, and view hotels as part of its main functionalities.
 
-:heavy_check_mark: Image Uploads
+:heavy_check_mark: Image Uploads -
 A vital feature for any booking platform, enhancing the visual appeal and functionality of the application.
 
-:heavy_check_mark: Search, Sort, & Filter
+:heavy_check_mark: Search, Sort, & Filter -
 It elevates the user experience by implementing functionalities that allow users to seamlessly search, sort, and filter hotels, facilitating the discovery of their ideal accommodations.
 
-:heavy_check_mark: Online Payments
+:heavy_check_mark: Online Payments -
 It integrates Stripe for secure and efficient online payments in the hotel booking process, ensuring a reliable and trustworthy transaction experience.
 
-:heavy_check_mark: Booking Management
+:heavy_check_mark: Booking Management -
 It implements features that enable users to view and manage their bookings, providing an essential component for an effective hotel booking application.
 
-:heavy_check_mark: Recent Hotels on Home Page
+:heavy_check_mark: Recent Hotels on Home Page -
 Display recently added hotels on the home page, ensuring dynamic and engaging content to captivate users and keep them informed about the latest additions to the platform.
 
-:heavy_check_mark: Automated Testing with Playwright
+:heavy_check_mark: Automated Testing with Playwright -
 Automated tests allows a comprehensive test of the application's web interactions, ensuring that all features function seamlessly across different browsers and environments.
 
-:heavy_check_mark: Continuous Integration and Deployment
+:heavy_check_mark: Continuous Integration and Deployment -
 A CI/CD pipeline ensures that every code change undergoes automated testing before deployment, catching potential issues early in the development process and maintaining the stability of the application throughout its lifecycle.
 
-:heavy_check_mark: Docker Containerization
+:heavy_check_mark: Docker Containerization -
 StaySavvy makes use of Docker containerization, encapsulating the application and its dependencies into lightweight, standalone containers. This facilitates consistent deployment across various environments, enhancing portability, scalability, and efficient resource utilization.
 
 ## :rocket: Technologies
