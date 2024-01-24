@@ -7,6 +7,7 @@ import authRoutes from "./routes/auth";
 import cookieParser from "cookie-parser";
 import { unknownEndpoint } from "./middleware/unknownEndpoint";
 import { reqLogger } from "./middleware/logger";
+import path from "path";
 
 const app = express();
 
@@ -19,6 +20,7 @@ mongoose
     console.error("Error connecting to MongoDB:", e.message);
   });
 
+app.use(express.static(path.join(__dirname, "../../client/dist")));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
