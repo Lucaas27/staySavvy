@@ -1,6 +1,6 @@
+import "dotenv/config";
 import express, { Request, Response } from "express";
 import cors from "cors";
-import "dotenv/config";
 import mongoose from "mongoose";
 // import userRoutes from "./routes/users";
 import authRoutes from "./routes/auth";
@@ -13,7 +13,7 @@ const app = express();
 mongoose
   .connect(process.env.MONGODB_CONNECTION_STRING as string)
   .then(() => {
-    console.info("Connected to MongoDB");
+    console.info(`Connected to MongoDB`);
   })
   .catch((e) => {
     console.error("Error connecting to MongoDB:", e.message);
@@ -35,6 +35,4 @@ app.use(reqLogger());
 app.use("/api/auth", authRoutes);
 app.use(unknownEndpoint);
 
-app.listen(process.env.SERVER_PORT, () =>
-  console.info(`Server is running on port ${process.env.SERVER_PORT}`)
-);
+app.listen(process.env.SERVER_PORT, () => console.info(`Server is running on port ${process.env.SERVER_PORT}`));
