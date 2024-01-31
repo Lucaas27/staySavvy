@@ -16,7 +16,7 @@ export const login = async (req: Request, res: Response) => {
     // And the user email exists in mongodb
     const { password, email } = req.body;
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: { $eq: email } });
 
     if (!user) {
       return res.status(400).json({ message: "Invalid credentials" });

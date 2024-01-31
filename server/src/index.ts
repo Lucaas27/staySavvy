@@ -8,6 +8,14 @@ import cookieParser from "cookie-parser";
 import { unknownEndpoint } from "./middleware/unknownEndpoint";
 import { reqLogger } from "./middleware/logger";
 import path from "path";
+import { rateLimit } from "express-rate-limit";
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  limit: 100, // Limit each IP to 100 requests per `window`
+  standardHeaders: "draft-7", // draft-6: `RateLimit-*` headers; draft-7: combined `RateLimit` header
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
+});
 
 const app = express();
 
@@ -21,6 +29,8 @@ mongoose
   });
 
 app.use(express.static(path.join(__dirname, "../../client/dist")));
+// Apply the rate limiting middleware to all requests.
+app.use(limiter);
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -14,7 +14,7 @@ export const register = async (req: Request, res: Response) => {
     // Given user sends a request with an email and password in the body
     // When a user does not have an account already
     let user = await User.findOne({
-      email: req.body.email,
+      email: { $eq: req.body.email },
     });
 
     if (user) {
